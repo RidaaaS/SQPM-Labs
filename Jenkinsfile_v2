@@ -1,18 +1,18 @@
  pipeline {
    environment {
      //PROJECT = "REPLACE_WITH_YOUR_PROJECT_ID"
- 	PROJECT = "lab4-softqual"
+ PROJECT = "lab3-sqpm"
      APP_NAME = "binary-calculator2"
- 	//CLUSTER = "REPLACE_WITH_YOUR_CLUSTER_NAME"
+ //CLUSTER = "REPLACE_WITH_YOUR_CLUSTER_NAME"
      CLUSTER = "sofe3980u"
      CLUSTER_ZONE = "northamerica-northeast1-b"
      IMAGE_TAG = "gcr.io/${PROJECT}/${APP_NAME}"
-     JENKINS_CRED = "lab4-softqual"
+     JENKINS_CRED = "lab3-sqpm"
    }
 
  agent {
      kubernetes {
- 	label 'sample-app'
+ label 'sample-app'
        defaultContainer 'jnlp'
        yaml """
  apiVersion: v1
@@ -44,7 +44,7 @@
    stages {
      stage ('Init') {
        steps {
- 	    checkout scm
+     checkout scm
          sh 'echo "Start of Job"'
        }
      }
